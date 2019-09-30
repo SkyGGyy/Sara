@@ -21,7 +21,8 @@ module.exports.run = async(client, message, args) => {
     }
 
     message.channel.fetchMessages({ limit: messagecount })
-    .then(messages => message.channel.bulkDelete(messages)).then(msg => message.channel.send(`${utils.info} Se eliminaron ${messagecount} mensajes!`));
+    .then(messages => message.channel.bulkDelete(messages)).then(msg => message.channel.send(`${utils.info} Se eliminaron ${messagecount} mensajes!`))
+    .then(m => {m.delete(3000)});
 }
 
 module.exports.help = {
