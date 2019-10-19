@@ -22,7 +22,7 @@ module.exports.run = async(client, message, args) => {
 
     message.channel.fetchMessages({ limit: messagecount })
     message.delete().then(() => message.channel.bulkDelete(messagecount)).then((messages) => {
-    message.channel.send(Se eliminaron ${messages.size} mensaje(s)).then(m => m.delete(2000))
+    message.channel.send(`Se eliminaron ${messages.size} mensaje(s)`).then(m => m.delete(2000))
     })
 }
 
