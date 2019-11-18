@@ -1,0 +1,30 @@
+storage
+bugreportlog.json
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.idea
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+LICENSE
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+deprecated
+.apdisk
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+.env
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
