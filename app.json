@@ -1,7 +1,11 @@
 {
-    "name": "Sara",
-    "description": "Un bot de discord con funciones de musica, moderacion, comandos para desarrolladores, entre muchas otras cosas.",
-    "repository": "https://github.com/Pabszito/Sara",
-    "logo": "https://cdn.discordapp.com/avatars/549379358914248724/679997bb2c5db236807fa73011e6d98c.png?size=2048",
-    "keywords": ["discord", "bot", "Sara"]
-  }
+  "name": "Sara",
+  "description": "Un bot de discord con funciones de musica, moderacion, comandos para desarrolladores, entre muchas otras cosas.",
+  "repository": "https://github.com/Pabszito/Sara",
+  "logo": "https://cdn.discordapp.com/avatars/549379358914248724/679997bb2c5db236807fa73011e6d98c.png?size=2048",
+  "keywords": [
+    "discord",
+    "bot",
+    "Sara"
+  ]
+}
