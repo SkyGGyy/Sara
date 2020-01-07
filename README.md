@@ -1,5 +1,5 @@
-[discord-invite]: https://discord.gg/qRa7ckm
-[discord-shield]: https://img.shields.io/discord/595711627152719924?color=blue&label=Discord&logo=Discord&logoColor=white
+[discord-invite]: https://discord.gg/GRTRyWu
+[discord-shield]: https://img.shields.io/discord/599478011926020116?color=blue&label=Discord&logo=Discord&logoColor=white
 [![Status](https://top.gg/api/widget/status/549379358914248724.svg)](https://top.gg/bot/549379358914248724)
 [ ![discord-shield][] ][discord-invite]
 [![Servers](https://top.gg/api/widget/servers/549379358914248724.svg)](https://top.gg/bot/549379358914248724)
@@ -50,4 +50,4 @@ Sara utiliza los siguientes packages:
 • El bot requiere Node.js version 8.x o superior.
 ```
 ### Links utiles
-[DiscordBots.org](https://discordbots.org/bot/549379358914248724); [Insert Ltd.](https://discord.gg/qRa7ckm)
+[DiscordBots.org](https://discordbots.org/bot/549379358914248724); [Support Server](https://discord.gg/GRTRyWu)
