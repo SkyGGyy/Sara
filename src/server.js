@@ -59,7 +59,7 @@ fs.readdir(__dirname + "/commands", (err, files) => {
 
 
 client.on('ready', async => {
-
+    client.channels.get("539275475357401088").send("<a:superhammer:659247163527921675>");
     client.user.setActivity(`s!help | rel. 2.4.0`, {
         type: "STREAMING",
         url: "https://twitch.tv/pabszito"
