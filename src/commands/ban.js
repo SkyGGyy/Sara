@@ -20,14 +20,9 @@ module.exports.run = async (client, message, args) => {
         return message.channel.send(`${utils.error} No puedo banear al usuario mencionado.`)
     }
 
-    var razon = args.slice(1).join(' ')
-    if (!razon) {
-        razon = `${message.author.tag}: No se especifico una razon.`
-    } else {
-        razon = `${message.author.tag}: ${razon}`
-    }
-
-    mem.send("**Fuiste baneado!**\n" +
+    let razon = !args.slice(1).join(' ') ? `${message.author.tag}: Ninguna razon especificada` : `${message.author.tag}: ${razon}`
+    
+    await mem.send("**Fuiste baneado!**\n" +
         `Staff: ${message.author}\n` +
         `Razon: ${razon} \n` +
         `Servidor: ${message.guild.name}`).catch(console.error);
