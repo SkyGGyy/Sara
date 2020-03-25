@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
             `Servidor: ${message.guild.name}`).catch(console.error);
 
         console.log(message.author.username + " advirtio a " + warn.username);
-        const embed = new Discord.RichEmbed()
+        let embed = new Discord.RichEmbed()
             .setTitle("Usuario advertido")
             .setDescription('Un usuario ha sido advertido!')
             .addField("Staff:", message.author, false)
