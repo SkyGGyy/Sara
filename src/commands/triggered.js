@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const botconfig = require('../storage/botconfig.json');
-var Weez = require('weez');
-var weez = new Weez.WeezAPI(botconfig.weezkey);
+const Weez = require('weez');
+const weez = new Weez.WeezAPI(botconfig.weezkey);
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
 
     let triggered = await weez.triggered(user.avatarURL);
 
-    const attachment = new Discord.Attachment(triggered, 'triggered.gif');
+    let attachment = new Discord.Attachment(triggered, 'triggered.gif');
     message.channel.send(attachment);
 }
 
