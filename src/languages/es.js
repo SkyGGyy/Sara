@@ -15,6 +15,6 @@ module.exports = {
       UNMUTED: ':success: $target fue desmuteado.',
       UNBANNED: ':success: $target fue desbaneado.',
       UNWARNED: ':success: Se elimino una de las advertencias de $target.',
-      NO_WARNINGS: ':error: $target no tiene advertencias
+      NO_WARNINGS: ':error: $target no tiene advertencias'
       
 }
