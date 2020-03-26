@@ -87,7 +87,8 @@ module.exports.run = async (client, message, args) => {
                     `${prefix}serverinfo: Obten informacion acerca del servidor.\n` +
                     `${prefix}ping: Obten el ping del bot.\n` +
                     `${prefix}userinfo [miembro]: Obtener informacion de un usuario.\n` +
-                    `${prefix}links: Links relacionados al bot.`)
+                    `${prefix}links: Links relacionados al bot.\n` +
+                    `${prefix}changelog: Lista de cambios desde la version 2.4.1`)
                 .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
                 .setColor("#EE82EE")
             message.channel.send(embed)
