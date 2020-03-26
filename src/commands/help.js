@@ -69,7 +69,7 @@ module.exports.run = async (client, message, args) => {
                     `${prefix}pat <miembro>: Dale un poco de cariño a alguien.\n` +
                     `${prefix}kiss <miembro>: Dale un beso a alguien.\n` +
                     `${prefix}meme: Envia un meme aleatorio.\n` +
-                    `${prefix}8ball <pregunta>: 8ball clasico.\n${prefix}triggered <miembro>: ***triggered***\n${prefix}gay <miembro>: Una vez cuando tenia 7 años me senté en un plátano, y claro eso cambio mi vida. <3\n${prefix}!basura <miembro>: Wow, esto es basura!\n${prefix}cat: Imagen de un gato aleatorio.`)
+                    `${prefix}8ball <pregunta>: 8ball clasico.\n${prefix}triggered <miembro>: ***triggered***\n${prefix}gay <miembro>: Una vez cuando tenia 7 años me senté en un plátano, y claro eso cambio mi vida. <3\n${prefix}basura <miembro>: Wow, esto es basura!\n${prefix}cat: Imagen de un gato aleatorio.`)
                 .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
                 .setColor("#EE82EE")
             message.channel.send({embed})
@@ -144,7 +144,7 @@ module.exports.run = async (client, message, args) => {
             msg.delete();
             let embed = new Discord.RichEmbed()
                 .setTitle("🛰 Utilidades")
-                .setDescription(prefix + "qrcodegen <texto>: Genera un codigo QR a partir de un texto.\n" + prefix + "morse <texto>: Convertidor de texto a codigo morse.\n"+`${prefix}prefix [prefix]: Establece el prefix (o muestra) para el servidor actual.\n${prefix}say <mensaje>: Hace que Sara envie un mensaje.\n${prefix}teamtrees: Estadisticas de [#teamtrees](https://teamtrees.org)\n${prefix}weather <ciudad>: Muestra la temperatura actual de un lugar.\n${prefix}reportbug <bug>: Reporta un bug. Tambien puedes hacerlo mediante el servidor de soporte.`)
+                .setDescription(prefix + "qrcodegen <texto>: Genera un codigo QR a partir de un texto.\n" + prefix + "morse <texto>: Convertidor de texto a codigo morse.\n"+`${prefix}prefix [prefix]: Establece el prefix (o muestra) para el servidor actual.\n${prefix}say <mensaje>: Hace que Sara envie un mensaje.\n${prefix}teamtrees: Estadisticas de [#teamtrees](https://teamtrees.org)\n${prefix}weather <ciudad>: Muestra la temperatura actual de un lugar.`)
                 .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
                 .setColor("#EE82EE")
             message.channel.send(embed)
