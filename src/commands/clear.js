@@ -6,8 +6,10 @@ module.exports.run = async(client, message, args) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) {
         message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`);
         return;
-    }else if(!message.channel.permissionsFor(client.user).hasPermission("MANAGE_MESSAGES")){
-        message.channel.send(`${utils.error} Necesito el permiso `+"`MANAGE_MESSAGES`"+` para ejecutar ese comando!`);
+    }
+    
+    if(!message.channel.permissionsFor(client.user).hasPermission("MANAGE_MESSAGES")){
+        message.channel.send(`${utils.error} Necesito el permiso \`MANAGE_MESSAGES\` para ejecutar ese comando!`);
         return;
     }
 
