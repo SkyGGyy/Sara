@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
+const utils = require('../../utils.json')
 
 module.exports.run = async (client, message, args) => {
-    const utils = require('../../utils.json')
-    const serverQueue = message.client.queue.get(message.guild.id);
+
+    let serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue) return message.channel.send(`${utils.error} No hay nada reproduciendose ahora mismo.`);
     let embed = new Discord.RichEmbed()
         .setTitle("Cola para " + message.guild.name)
