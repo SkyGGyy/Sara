@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("...")
         .setDescription(`${target != message.author ? null : "Una vez me sente en un platano, y por supuesto eso cambio mi vida"}`)
         .setColor("#EE82EE")
-        .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
         .setImage(attachment);
     
     message.channel.send(embed);
