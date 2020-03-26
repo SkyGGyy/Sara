@@ -28,7 +28,7 @@ function checkDays(date) {
 };
 
 module.exports.run = async (client, message, args) => {
-    const embed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
         .setTitle("Informacion de servidor")
         .setDescription("Delivery! Aqui esta la informacion que pedias.")
         .addField("Nombre:", message.guild.name, true)
@@ -40,10 +40,10 @@ module.exports.run = async (client, message, args) => {
         .addField("Nivel de verificacion:", verifLevels[message.guild.verificationLevel], true)
         .addField("Cantidad de canales:", message.guild.channels.size, true)
         .addField("Cantidad de roles:", message.guild.roles.size, true)
-        .addField("Creado el:", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true);
-    embed.setColor("#EE82EE");
-    embed.setFooter('Bot desarrollado por Pabszito#7790', client.user.avatarURL);
-    message.channel.send({embed});
+        .addField("Creado el:", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true)
+        .setColor("#EE82EE")
+        .setFooter('Bot desarrollado por Pabszito#7790', client.user.avatarURL);
+    message.channel.send(embed);
 }
 
 module.exports.help = {
