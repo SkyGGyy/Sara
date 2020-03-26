@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports = async(client, message, args) =>{
+module.exports.run = async(client, message, args) =>{
 
     let embed = new Discord.RichEmbed()
     .setTitle("Lista de cambios")
