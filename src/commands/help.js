@@ -53,9 +53,9 @@ module.exports.run = async (client, message, args) => {
             const embed = new Discord.RichEmbed()
                 .setTitle("⛔ Comandos de moderacion")
                 .setDescription(`${prefix}warn <miembro> <razon>: Advierte a un usuario.\n` +
-                    `${prefix}kick <miembro> <razon>: Expulsa a un usuario.\n
-                    ${prefix}ban <miembro> <razon>: Banea a un usuario.\n
-                    ${prefix}clear <cantidad entre 1 y 100>: Limpia una cierta cantidad de mensajes.`)
+                    `${prefix}kick <miembro> <razon>: Expulsa a un usuario.\n`+
+                    `${prefix}ban <miembro> <razon>: Banea a un usuario.\n`
+                    `${prefix}clear <cantidad>: Limpia una cierta cantidad de mensajes.`)
                 .setColor("#EE82EE")
                 .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
             message.channel.send({embed})
@@ -104,12 +104,11 @@ module.exports.run = async (client, message, args) => {
             msg.delete();
             const embed = new Discord.RichEmbed()
                 .setTitle("🎵 Comandos de musica")
-                //.setDescription("s!play <cancion>: Reproduce una cancion\n"+
-                //"s!skip: Salta a la siguiente cancion en la cola.\n"+
-                //"s!stop: Frena el reproductor.\n"+
-                //"s!np: Que esta sonando ahora mismo?\n"+
-                //"**Nota:** Los comandos de Musica son *experimentales*, por lo que pueden contener errores ya sea al momento de ejecutarlos o en el momento que se reproduce una cancion.")
-                .setDescription("Lamentamos las molestias, pero estos comandos estan deshabilitados temporalmente.")
+                .setDescription(`${prefix}play <cancion>: Reproduce una cancion\n`+
+                `${prefix}skip: Salta a la siguiente cancion en la cola.\n`+
+                `${prefix}stop: Frena el reproductor.\n`+
+                `${prefix}np: Que esta sonando ahora mismo?\n`+
+                "**Nota:** Los comandos de Musica son *experimentales*, por lo que pueden contener errores ya sea al momento de ejecutarlos o en el momento que se reproduce una cancion.")
                 .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
                 .setColor("#EE82EE")
             message.channel.send({embed})
