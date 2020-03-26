@@ -16,7 +16,7 @@ module.exports.run = (client, message, args) => {
             .setTitle("Hastebin")
             .setDescription(`Tu post fue creado con exito! Puedes verlo en ${r} cuando tu quieras.`)
             .setColor("#EE82EE")
-            .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+            .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
         message.channel.send(embed);
     });
 }
