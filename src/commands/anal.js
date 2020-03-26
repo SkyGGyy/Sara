@@ -8,10 +8,10 @@ module.exports.run = async (client, message, args) => {
             .query({type: 'anal'})
             .end((err, response) => {
                 let embed = new Discord.RichEmbed()
-                    .setTitle("Aqui esta lo que pedias...")
+                    .setTitle("...")
                     .setImage(response.body.message)
                     .setColor("#EE82EE")
-                    .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+                    .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
                 message.channel.send(embed)
                 if (err) {
                     console.error(err);
