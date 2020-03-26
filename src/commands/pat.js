@@ -9,6 +9,7 @@ module.exports.run = async (client, message, args) => {
     if (member.id === '549379358914248724') return message.channel.sendMessage("<:error:619698101447294977> Conmigo no.");
     if (member === message.author) return message.channel.sendMessage("<:error:619698101447294977> Te intentas dar cariño a ti mismo?");
     let img = await weez.randomPat();
+    //bruh
     message.channel.send(member + ", has recibido un poco de cariño por parte de " + message.author, {files: [img]});
 }
 
