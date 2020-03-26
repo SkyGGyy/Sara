@@ -6,6 +6,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send({files: [img]}).then(m => {
         m.react('😂')
     });
+    //bruh reddit memes > discordmeme.js
 }
 
 module.exports.help = {
