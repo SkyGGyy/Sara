@@ -32,16 +32,6 @@ Puedes obtener soporte en [este discord.](https://discord.gg/qRa7ckm)
 Bot hecho por: Pabszito#7790
 Ayudante: Yushu#4407
 ```
-### Packages
-Sara utiliza los siguientes packages:
-```
-• discord.js
-• http
-• express 
-• weez
-• request
-• node-superfetch
-```
 ### Advertencias
 ```
 • Las versiones de Sara modificadas (es decir, que se les ha modificado el codigo) no obtienen soporte. 
