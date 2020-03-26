@@ -5,9 +5,9 @@ module.exports.run = async (client, message, args) => {
 
     if (!args[0]) return message.channel.send(`${utils.error} Que dire?`);
 
-    const toSay = args.join(" ");
+    let text = args.join(" ");
 
-    message.channel.send(toSay);
+    message.channel.send(text);
 }
 
 module.exports.help = {
