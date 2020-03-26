@@ -10,6 +10,8 @@ module.exports.run = async (client, message, args) => {
     if (member === message.author) return message.channel.send("<:error:619698101447294977> Te intentas abrazar a ti mismo? ok...");
     let img = await weez.randomAbrazo();
     message.channel.send(member + ", has recibido un abrazo de " + message.author, {files: [img]});
+    
+    // BRUH
 }
 
 module.exports.help = {
