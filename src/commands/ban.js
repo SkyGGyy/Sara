@@ -23,7 +23,6 @@ module.exports.run = async (client, message, args) => {
     target.ban(reason);
 
     message.channel.send(`${utils.info} ${target.user.tag} fue baneado del Discord.`);
-    
 }
 
 module.exports.help = {
