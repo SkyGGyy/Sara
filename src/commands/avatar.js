@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.channel.send('<:error:619698101447294977> Debes mencionar a alguien.').catch(console.error);
+    let target = message.mentions.users.first();
+    if (message.mentions.users.size < 1) target = message.author;
 
-    const embed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
         .setTitle("Avatar")
-        .setDescription("Aqui tienes el avatar de " + user + ".")
+        .setDescription(`${target === message.author ? "Aqui tienes tu avatar" : "Aqui esta el avatar de ${message.author.tag}.`)
         .setImage(user.avatarURL);
-    embed.setColor("#EE82EE");
-    embed.setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
+        .setColor("#EE82EE")
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
     message.channel.send({embed});
 }
 module.exports.help = {
