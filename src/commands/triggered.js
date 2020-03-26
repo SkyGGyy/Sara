@@ -5,10 +5,10 @@ const weez = new Weez.WeezAPI(botconfig.weezkey);
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
-    let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.channel.send('<:error:619698101447294977> Debes mencionar a alguien.').catch(console.error);
+    let target = message.mentions.users.first();
+    if (message.mentions.users.size < 1) target = message.author;
 
-    let triggered = await weez.triggered(user.avatarURL);
+    let triggered = await weez.triggered(target.avatarURL);
 
     let attachment = new Discord.Attachment(triggered, 'triggered.gif');
     message.channel.send(attachment);
