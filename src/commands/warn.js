@@ -6,12 +6,12 @@ module.exports.run = async (client, message, args) => {
         let target = message.mentions.users.first();
         let reason = args.slice(1).join(' ');
 
-        if (message.author === warn) return message.channel.send(`${utils.error} No te puedes advertir a ti mismo!`);
+        if (message.author === target) return message.channel.send(`${utils.error} No te puedes advertir a ti mismo!`);
         if (!target) return message.channel.send(`${utils.error} Menciona a alguien.`);
         if (!reason) return message.channel.send(`${utils.error} Por favor, especifica una razon.`);
         if (!message.guild.member(target).kickable) return message.channel.send(`${utils.error} No puedo advertir al usuario mencionado.`);
 
-        warn.send("**Fuiste advertido!**\n" +
+        target.send("**Fuiste advertido!**\n" +
             `Staff: ${message.author}\n` +
             `Razon: ${razon} \n` +
             `Servidor: ${message.guild.name}`).catch(console.error);

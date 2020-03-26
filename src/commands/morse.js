@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.RichEmbed()
         .setTitle('Traductor morse')
-        .setDescription('Tu texto fue traducido! Estos son los resultados:\n**Texto original:** ' + texto + "\n**Traducido a morse:** " + translated)
+        .setDescription('Tu texto fue traducido! Estos son los resultados:\n**Texto original:** ' + text + "\n**Traducido a morse:** " + translated)
         .setColor("#EE82EE")
         .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
     message.channel.send(embed);

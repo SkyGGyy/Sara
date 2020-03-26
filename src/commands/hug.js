@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     let target = message.mentions.users.first();
     if (!target) return message.channel.send(`${utils.error} Te abrazaras a ti mismo?`);
     if (target.id === client.user.id) return message.channel.send(`${utils.error} Conmigo no.`);
-    if (member === message.author) return message.channel.send(`${utils.error} Te intentas abrazar a ti mismo? ok...`);
+    if (target === message.author) return message.channel.send(`${utils.error} Te intentas abrazar a ti mismo? ok...`);
 
     let img = await weez.randomAbrazo();
     let attachment = new Discord.Attachment(img, 'hug.gif');

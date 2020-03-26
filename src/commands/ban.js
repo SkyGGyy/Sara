@@ -2,13 +2,13 @@ const Discord = require('discord.js')
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
-    
-    let target = message.mentions.members.first() || message.guild.get(args[0]);
-    let reason = !args[1] ? `${message.author.tag} : ${args.slice(1).join()}` : `${message.author.tag}: Ninguna razon especificada`;
+
+    let target = message.mentions.members.first() || message.guild.member(args[0]);
+    let reason = args[1] ? `${args.slice(1).join()}` : `Ninguna razon especificada`;
 
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`);
     if(!target) return message.channel.send(`${utils.error} Necesitas mencionar a una persona.`);
-    if(!message.guild.get(target).kickeable) return message.channel.send(`${utils.error} No puedo sancionar al usuario especificado.`);
+    if(!message.guild.member(target).kickable) return message.channel.send(`${utils.error} No puedo sancionar al usuario especificado.`);
     
     let bannedFrom = new Discord.RichEmbed()
         .setTitle(`Fuiste baneado de ${message.guild.name}`)

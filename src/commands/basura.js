@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     let attachment = new Discord.Attachment(trash, 'basura.png');
     let embed = new Discord.RichEmbed()
         .setTitle("...")
-        .setDescription(`${target === message.author ? "Te consideras basura?" : null}`)
+        .setDescription(`${target === message.author ? "Te consideras basura?" : "confirmo, esto es basura"}`)
         .attachFile(attachment)
         .setImage('attachment://basura.png')
         .setColor("#EE82EE")

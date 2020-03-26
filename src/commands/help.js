@@ -4,7 +4,7 @@ const prefixes = require('../storage/prefix.json');
 
 module.exports.run = async (client, message, args) => {
 
-    let prefix = "s!";
+    var prefix = "s!";
 
     if (prefixes.hasOwnProperty("g" + message.guild.id)) {
         prefix = prefixes["g" + message.guild.id];
@@ -54,7 +54,7 @@ module.exports.run = async (client, message, args) => {
                 .setTitle("⛔ Comandos de moderacion")
                 .setDescription(`${prefix}warn <miembro> [razon]: Advierte a un usuario.\n` +
                     `${prefix}kick <miembro> [razon]: Expulsa a un usuario.\n`+
-                    `${prefix}ban <miembro> [razon]: Banea a un usuario.\n`
+                    `${prefix}ban <miembro> [razon]: Banea a un usuario.\n` +
                     `${prefix}clear <cantidad>: Limpia una cierta cantidad de mensajes.`)
                 .setColor("#EE82EE")
                 .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)

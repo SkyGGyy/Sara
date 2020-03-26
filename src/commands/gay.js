@@ -13,7 +13,6 @@ module.exports.run = async (client, message, args) => {
     let attachment = new Discord.Attachment(gay, 'gay.png');
     let embed = new Discord.RichEmbed()
         .setTitle("...")
-        .setDescription(`${target != message.author ? null : "Una vez me sente en un platano, y por supuesto eso cambio mi vida"}`)
         .setColor("#EE82EE")
         .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
         .setImage(attachment);

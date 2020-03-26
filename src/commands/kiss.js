@@ -6,7 +6,7 @@ const weez = new Weez.WeezAPI(botconfig.weezkey);
 module.exports.run = async (client, message, args) => {
     let target = message.mentions.users.first();
     if (message.author === target) return message.channel.sendMessage(`${utils.error} ooohh, eso es triste. Te besaras a ti mismo?`);
-    if (toKiss.id === '549379358914248724') return message.channel.sendMessage(`${utils.error} Conmigo no.`);
+    if (target.id === client.user.id) return message.channel.sendMessage(`${utils.error} Conmigo no.`);
     if (!target) return message.channel.send(`${utils.error} Debes mencionar a alguien.`);
 
     let kiss = await weez.randomBeso();
