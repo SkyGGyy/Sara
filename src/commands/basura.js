@@ -1,17 +1,24 @@
 const Discord = require('discord.js');
 const botconfig = require('../storage/botconfig.json');
-var Weez = require('weez');
-var weez = new Weez.WeezAPI(botconfig.weezkey);
+const Weez = require('weez');
+const weez = new Weez.WeezAPI(botconfig.weezkey);
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
-    let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.channel.send('<:error:619698101447294977> Debes mencionar a alguien.').catch(console.error);
+    let target = message.mentions.users.first();
+    if (message.mentions.users.size < 1) target = message.author;
 
-    let basura = await weez.basura(user.avatarURL);
+    let trash = await weez.basura(target.avatarURL);
 
-    const attachment = new Discord.Attachment(basura, 'basura.png');
-    message.channel.send(attachment);
+    let attachment = new Discord.Attachment(trash, 'basura.png');
+    let embed = new Discord.RichEmbed()
+        .setTitle("...")
+        .setDescription(`${target === message.author ? "Te consideras basura?" : null}`)
+        .setColor("#EE82EE")
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
+        .setImage(attachment);
+    
+    message.channel.send(embed);
 }
 
 module.exports.help = {
