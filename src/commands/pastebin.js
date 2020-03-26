@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const PastebinAPI = require('pastebin-js');
 const botConfig = require('../storage/botconfig.json');
-const pastebin = new PastebinAPI(botConfig.pastebinapikey);
-pastebin = new PastebinAPI({
+const pastebin = new PastebinAPI({
     'api_dev_key': botConfig.pastebinapikey,
     'api_user_name': botConfig.pastebinusername,
     'api_user_password': botConfig.pastebinuserpassword

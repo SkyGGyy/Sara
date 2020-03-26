@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const {Client, Util} = require('discord.js');
 const ytdl = require('ytdl-core');
-const utils = require('../../utils.json')
+const utils = require('../utils.json')
 const ytdlDiscord = require('ytdl-core-discord');
 
 module.exports.run = async (client, message, args) => {
