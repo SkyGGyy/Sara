@@ -1,19 +1,26 @@
 const Discord = require('discord.js');
 const botconfig = require('../storage/botconfig.json');
-var Weez = require('weez');
-var weez = new Weez.WeezAPI(botconfig.weezkey);
+const Weez = require('weez');
+const weez = new Weez.WeezAPI(botconfig.weezkey);
 
 module.exports.run = async (client, message, args) => {
-    let toKiss = message.mentions.users.first();
-    if (message.author === toKiss) return message.channel.sendMessage("<:error:619698101447294977> ooohh, eso es triste. Te besaras a ti mismo?");
-    if (toKiss.id === '549379358914248724') return message.channel.sendMessage("<:error:619698101447294977> Conmigo no lo haras!");
-    if (!toKiss) return message.channel.send("<:error:619698101447294977> Menciona a alguien.");
+    let target = message.mentions.users.first();
+    if (message.author === target) return message.channel.sendMessage(`${utils.error} ooohh, eso es triste. Te besaras a ti mismo?`);
+    if (toKiss.id === '549379358914248724') return message.channel.sendMessage(`${utils.error} Conmigo no.`);
+    if (!target) return message.channel.send(`${utils.error} Debes mencionar a alguien.`);
 
-    let link = await weez.randomBeso();
-
-    message.channel.send(toKiss + ", recibiste un beso de <@" + message.author.id + ">", {files: [link]});
+    let kiss = await weez.randomBeso();
+    let attachment = new Discord.Attachment(kiss, 'kiss.gif')
     
-    // BRUh
+    let embed = new Discord.RichEmbed()
+    .setTitle("...")
+    .setDescription(`${target}, has recibido un beso por parte de ${message.author}`)
+    .setColor("#EE82EE")
+    .attachFile(attachment)
+    .setImage(`attachment://kiss.gif`)
+    .setFooter("Bot desarrollado por Pabszito#7777");
+
+    message.channel.send(embed);
 }
 
 module.exports.help = {

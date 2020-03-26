@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Prefix")
         .setDescription(`El prefix actual para \`${message.guild.name}\` es \`${prefix}\`.\nSi deseas establecer un prefix, utiliza \`${prefix}prefix <prefix>\``)
         .setColor("#ee82ee")
-        .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
 
     if (!args[0]) return message.channel.send(embed);
 

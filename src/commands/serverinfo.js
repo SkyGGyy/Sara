@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
         .addField("Cantidad de roles:", message.guild.roles.size, true)
         .addField("Creado el:", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true)
         .setColor("#EE82EE")
-        .setFooter('Bot desarrollado por Pabszito#7790', client.user.avatarURL);
+        .setFooter('Bot desarrollado por Pabszito#7777', client.user.avatarURL);
     message.channel.send(embed);
 }
 

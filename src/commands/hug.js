@@ -1,17 +1,27 @@
 const Discord = require('discord.js');
 const botconfig = require('../storage/botconfig.json');
-var Weez = require('weez');
-var weez = new Weez.WeezAPI(botconfig.weezkey);
+const utils = require('../utils.json');
+const Weez = require('weez');
+const weez = new Weez.WeezAPI(botconfig.weezkey);
 
 module.exports.run = async (client, message, args) => {
-    let member = message.mentions.users.first();
-    if (!member) return message.channel.send("<:error:619698101447294977> Intentas abrazar a un fantasma?");
-    if (member.id === '549379358914248724') return message.channel.send("<:error:619698101447294977> Conmigo no.");
-    if (member === message.author) return message.channel.send("<:error:619698101447294977> Te intentas abrazar a ti mismo? ok...");
+    let target = message.mentions.users.first();
+    if (!target) return message.channel.send(`${utils.error} Te abrazaras a ti mismo?`);
+    if (target.id === client.user.id) return message.channel.send(`${utils.error} Conmigo no.`);
+    if (member === message.author) return message.channel.send(`${utils.error} Te intentas abrazar a ti mismo? ok...`);
+
     let img = await weez.randomAbrazo();
-    message.channel.send(member + ", has recibido un abrazo de " + message.author, {files: [img]});
-    
-    // BRUH
+    let attachment = new Discord.Attachment(img, 'hug.gif');
+
+    let embed = new Discord.RichEmbed()
+    .setTitle("...")
+    .setDescription(`${target}, has recibido un abrazo por parte de ${message.author}`)
+    .setColor("#EE82EE")
+    .attachFile(attachment)
+    .setImage(`attachment://hug.gif`)
+    .setFooter("Bot desarrollado por Pabszito#7777");
+
+    message.channel.send(embed);    
 }
 
 module.exports.help = {

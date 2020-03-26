@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
         embed.setFooter('Bot desarrollado por Pabszito#7777', client.user.avatarURL);
         message.channel.send(embed);
     } else {
-        message.send("<:error:619698101447294977> Permisos insuficientes.");
+        message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`);
     }
 }
 

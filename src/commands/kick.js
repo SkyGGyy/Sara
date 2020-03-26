@@ -1,31 +1,27 @@
 const Discord = require('discord.js');
+const utils = require('../utils.json')
 
 module.exports.run = async (client, message, args) => {
-    let target = message.mentions.users.first();
-    let razon = args.slice(1).join(' ');
-    const perms = message.member.hasPermission("KICK_MEMBERS");
-
-    if (!perms) return message.channel.send("<:error:619698101447294977> Permisos insuficientes.");
-    if (message.mentions.users.size < 1) return message.channel.send('<:error:619698101447294977> Debes mencionar a alguien.').catch(console.error);
-    if (!razon) return message.channel.send('<:error:619698101447294977> Debes especificar una razon.');
-    if (!message.guild.member(target).kickable) return message.channel.send('<:error:619698101447294977> No puedo kickear al usuario mencionado.');
-
-    await target.send("**Fuiste kickeado!**\n" +
-        `Staff: ${message.author}\n` +
-        `Razon: ${razon} \n` +
-        `Servidor: ${message.guild.name}`).catch(console.error);
-
-    message.guild.member(user).kick(razon);
     
-    let embed = new Discord.RichEmbed()
-        .setTitle("Usuario kickeado")
-        .setDescription('Un usuario ha sido kickeado!')
-        .addField("Staff:", message.author, false)
-        .addField("Usuario:", user, false)
-        .addField("Razon:", razon, false);
-    embed.setColor("#EE82EE");
-    embed.setFooter('Bot desarrollado por Pabszito#7790', client.user.avatarURL);
-    message.channel.send({embed});
+    let args = message.content.split(" ").slice(1);
+    let target = message.mentions.members.first() || message.guild.get(args[0]);
+    let reason = !args[1] ? `${message.author.tag} : ${args.slice(1).join()}` : `${message.author.tag}: Ninguna razon especificada`;
+
+    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`);
+    if(!target) return message.channel.send(`${utils.error} Necesitas mencionar a una persona.`);
+    if(!message.guild.get(target).kickeable) return message.channel.send(`${utils.error} No puedo sancionar al usuario especificado.`);
+    
+    let kickedFrom = new Discord.RichEmbed()
+        .setTitle(`Fuiste kickeado de ${message.guild.name}`)
+        .addField("Responsable", message.author.tag)
+        .addField("Razon", reason)
+        .setColor("#EE82EE")
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
+    
+    await target.send(kickedFrom);
+    target.kick(reason);
+
+    message.channel.send(`${utils.info} ${target.user.tag} fue kickeado del Discord.`);
 }
 
 module.exports.help = {

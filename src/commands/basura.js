@@ -14,6 +14,8 @@ module.exports.run = async (client, message, args) => {
     let embed = new Discord.RichEmbed()
         .setTitle("...")
         .setDescription(`${target === message.author ? "Te consideras basura?" : null}`)
+        .attachFile(attachment)
+        .setImage('attachment://basura.png')
         .setColor("#EE82EE")
         .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
         .setImage(attachment);

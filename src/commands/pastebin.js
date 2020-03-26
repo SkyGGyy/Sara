@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
                 .setTitle("Pastebin")
                 .setDescription("Tu post fue creado con exito! Puedes verlo en " + data + " cuando tu quieras.\n Raw: https://pastebin.com/raw/" + data.substring(21))
                 .setColor("#EE82EE")
-                .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+                .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
             message.channel.send(embed);
         })
         .fail(function (err) {
