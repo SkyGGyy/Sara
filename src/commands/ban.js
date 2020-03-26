@@ -2,8 +2,7 @@ const Discord = require('discord.js')
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
-
-    let args = message.content.split(" ").slice(1);
+    
     let target = message.mentions.members.first() || message.guild.get(args[0]);
     let reason = !args[1] ? `${message.author.tag} : ${args.slice(1).join()}` : `${message.author.tag}: Ninguna razon especificada`;
 
