@@ -3,43 +3,27 @@ const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-        return message.channel.send(`${utils.error} No tengo permisos para banear usuarios.`)
-    }
+    let args = message.content.split(" ").slice(1);
+    let target = message.mentions.members.first() || message.guild.get(args[0]);
+    let reason = !args[1] ? `${message.author.tag} : ${args.slice(1).join()}` : `${message.author.tag}: Ninguna razon especificada`;
 
-    if (!message.member.hasPermission("BAN_MEMBERS")) {
-        return message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`)
-    }
-
-    if (!message.guild.member(user).kickable) return message.channel.send(`${utils.error} No puedo banear al usuario mencionado.`);
-
-    let mem = message.mentions.members.first()
-    if (!mem) {
-        return message.channel.send(`${utils.error} Necesitas mencionar a alguien.`)
-    } else if (mem.highestRole.comparePositionTo(message.member.highestRole) > 0) {
-        return message.channel.send(`${utils.error} No puedo banear al usuario mencionado.`)
-    }
-
-    let razon = !args.slice(1).join(' ') ? `${message.author.tag}: Ninguna razon especificada` : `${message.author.tag}: ${razon}`
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`${utils.error} No tienes permisos para ejecutar ese comando.`);
+    if(!target) return message.channel.send(`${utils.error} Necesitas mencionar a una persona.`);
+    if(!message.guild.get(target).kickeable) return message.channel.send(`${utils.error} No puedo sancionar al usuario especificado.`);
     
-    await mem.send("**Fuiste baneado!**\n" +
-        `Staff: ${message.author}\n` +
-        `Razon: ${razon} \n` +
-        `Servidor: ${message.guild.name}`).catch(console.error);
-
-    mem.ban(razon).catch(e => {
-        message.channel.send(`${utils.error} No se pudo banear al usuario mencionado debido a un error desconocido, por favor, si tienes permisos, mira la consola.`)
-        console.error(`[ERROR] Ocurrio un error mientras se baneaba a un usuario: ${e}`);
-    });
-
-    let embed = new Discord.RichEmbed()
-        .setTitle("Usuario baneado")
-        .setDescription(`El usuario ${mem.user.tag} fue baneado`)
-        .addField("Detalles", `**Usuario afectado:** ${mem.user.tag}\n**Staff:** ${message.author.tag}\n**Razon**: ${razon}\n**Duracion:** Este baneo no expira.`, false)
+    let bannedFrom = new Discord.RichEmbed()
+        .setTitle(`Fuiste baneado de ${message.guild.name}`)
+        .addField("Responsable", message.author.tag)
+        .addField("Razon", reason)
+        .addField("Tiempo", "Permanente")
         .setColor("#EE82EE")
-        .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
+    
+    await target.send(bannedFrom);
+    target.ban(reason);
 
-    message.channel.send(embed)
+    message.channel.send(`${utils.info} ${target.user.tag} fue baneado del Discord.`);
+    
 }
 
 module.exports.help = {
