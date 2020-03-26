@@ -2,10 +2,8 @@ const http = require('http');
 const express = require('express');
 const app = express();
 
-app.use(express.static('public'));
-
 app.get("/", function (request, response) {
-    response.sendFile(__dirname + '/views/index.html');
+    response.sendFile(__dirname + '/src/html/404.html');
 });
 
 app.get("/", (request, response) => {
