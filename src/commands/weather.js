@@ -13,8 +13,8 @@ module.exports.run = async (client, message, args) => {
             return;
         }
 
-        var current = result[0].current
-        var location = result[0].location
+        let current = result[0].current
+        let location = result[0].location
 
         let embed = new Discord.RichEmbed()
             .setTitle(`Clima para ${current.observationpoint}`)
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
             .addField("Dia", `${current.day}`, true)
             .addField("Fecha", `${current.date}`, true)
             .setColor("#ee82ee")
-            .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL);
+            .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
 
         message.channel.send(embed)
     });
