@@ -5,13 +5,20 @@ var weez = new Weez.WeezAPI(botconfig.weezkey);
 const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
-    let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.channel.send('<:error:619698101447294977> Debes mencionar a alguien.').catch(console.error);
+    let target = message.mentions.users.first();
+    if (message.mentions.users.size < 1) target = message.author;
 
-    let gay = await weez.rainbow(user.avatarURL);
+    let gay = await weez.rainbow(target.avatarURL);
 
-    const attachment = new Discord.Attachment(gay, 'gay.png');
-    message.channel.send(attachment);
+    let attachment = new Discord.Attachment(gay, 'gay.png');
+    let embed = new Discord.RichEmbed()
+        .setTitle("...")
+        .setDescription(`${target != message.author ? null : "Una vez me sente en un platano, y por supuesto eso cambio mi vida"}`)
+        .setColor("#EE82EE")
+        .setFooter("Bot desarrollado por Pabszito#7790", client.user.avatarURL)
+        .setImage(attachment);
+    
+    message.channel.send(embed);
 }
 
 module.exports.help = {
