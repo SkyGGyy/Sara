@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     let embed = new Discord.RichEmbed()
         .setTitle("Informacion")
         .setDescription("Aqui esta la informacion que estabas pidiendo.")
-        .addField("Nombre completo:", user.user.tag, false)
+        .addField("Nombre completo:", target.user.tag, false)
         .addField("Bot:", `${target.user.bot ? "Si" : "No"}`, false)
         .addField("ID:", target.user.id, false) 
         .addField("Nickname:", `${target.user.nickname ? nickname : "Ninguno"} `, false)
