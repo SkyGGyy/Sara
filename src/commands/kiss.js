@@ -12,6 +12,8 @@ module.exports.run = async (client, message, args) => {
     let link = await weez.randomBeso();
 
     message.channel.send(toKiss + ", recibiste un beso de <@" + message.author.id + ">", {files: [link]});
+    
+    // BRUh
 }
 
 module.exports.help = {
