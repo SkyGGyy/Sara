@@ -17,7 +17,6 @@
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.3.0",
     "discord.js": "^11.5.1",
-    "discordmeme.js": "^10.0.2",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.1",
     "express": "^4.17.1",
