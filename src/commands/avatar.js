@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.RichEmbed()
         .setTitle("Avatar")
-        .setDescription(`${target === message.author ? "Aqui tienes tu avatar" : `Aqui esta el avatar de ${target.user.tag}.`}`)
+        .setDescription(`${target === message.author ? "Aqui tienes tu avatar" : `Aqui esta el avatar de ${target.tag}.`}`)
         .setImage(target.avatarURL)
         .setColor("#EE82EE")
         .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)

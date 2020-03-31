@@ -8,7 +8,9 @@ module.exports.run = async (client, message, args) => {
     let target = message.mentions.users.first();
     if (message.mentions.users.size < 1) target = message.author;
 
-    let trash = await weez.basura(target.avatarURL);
+    if(target.id === client.user.id) return message.channel.send(`${utils.error} No, yo no soy basura..`);
+    
+    let trash = await weez.basura(target.displayAvatarURL);
 
     let attachment = new Discord.Attachment(trash, 'basura.png');
     let embed = new Discord.RichEmbed()
@@ -17,8 +19,7 @@ module.exports.run = async (client, message, args) => {
         .attachFile(attachment)
         .setImage('attachment://basura.png')
         .setColor("#EE82EE")
-        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL)
-        .setImage(attachment);
+        .setFooter("Bot desarrollado por Pabszito#7777", client.user.avatarURL);
     
     message.channel.send(embed);
 }

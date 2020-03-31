@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const nekoslife = require('nekos.life');
 const neko = new nekoslife();
+const utils = require('../utils.json');
 
 module.exports.run = async (client, message, args) => {
 
